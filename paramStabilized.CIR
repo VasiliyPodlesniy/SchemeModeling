@@ -1,0 +1,923 @@
+[Main]
+FileType=CIR
+Version=11.01
+Program=Micro-Cap
+Component Version=10.00
+Shape Version=11.00
+Screen=1920,1080
+MCAPVersion=11.0.1.9
+Key ID=0
+NLCnt=20
+TXCnt=2
+
+[shapedef]
+Name=Battery
+Line=0,0,22,0
+Line=22,-3,22,3
+Line=26,-7,26,7
+Line=26,0,48,0
+Current=32,8,16,8
+
+[shapedef]
+Name=Bjt.root
+Line=0,0,13,0
+Rectangle=13,-12,15,12
+Current=32,-24,32,-16
+Current=32,24,32,16
+Current=0,-8,8,-8
+PolyOpen=3
+PolyLine=24,-24
+PolyLine=24,-12
+PolyLine=14,-2
+PolyOpen=3
+PolyLine=24,24
+PolyLine=24,12
+PolyLine=14,2
+
+[shapedef]
+Name=Diode.root
+Line=0,0,20,0
+Line=28,0,48,0
+Rectangle=18,-8,20,8
+PolyClosed=3
+PolyLine=20,0
+PolyLine=28,-8
+PolyLine=28,8
+Current=32,16,16,16
+
+[shapedef]
+Name=Ground
+Line=0,0,12,0
+Line=12,-8,12,8
+Line=18,-4,18,4
+Line=24,0,24,0
+
+[shapedef]
+Name=NPN
+Root="Bjt.root",0,0,0
+PolyClosed=3
+PolyLine=20,12
+PolyLine=24,12
+PolyLine=24,8
+
+[shapedef]
+Name=Resistor_Euro
+Rectangle=12,-4,36,4
+FColor=None
+Line=0,0,12,0
+Line=48,0,36,0
+Current=32,8,16,8
+Ellipse=31,-1,33,1
+FColor=#0000FF
+
+[shapedef]
+Name=Zener
+Root="Diode.root",0,0,0
+Rectangle=16,-9,20,-8
+Rectangle=18,8,22,9
+
+[compdef]
+Name=Battery
+Definition=Battery
+Shape=Battery
+Mask=4865
+Used=54
+memo=Battery
+Label Offset=19,7,10,13
+PinCnt=2
+Pin="Plus",6,0,-4,-5
+Pin="Minus",0,0,-10,-5
+
+[compdef]
+Name=NPN
+Definition=NPN
+Shape=NPN
+Mask=4097
+Used=286
+memo=NPN Transistor
+Label Offset=37,-17,-14,33
+PinCnt=3
+Pin="Collector",3,-3,4,14
+Pin="Base",0,0,-18,-3
+Pin="Emitter",3,3,5,1
+
+[compdef]
+Name=Resistor
+Definition=Resistor
+Shape=Resistor_Euro
+Mask=6401
+Used=1936
+memo=Resistor
+Label Offset=11,-36,10,10
+PinCnt=2
+Pin="Plus",6,0,-10,-4
+Pin="Minus",0,0,-14,-4
+
+[compdef]
+Name=Ground
+Definition=Ground
+Shape=Ground
+Mask=769
+Used=736
+memo=Ground
+Label Offset=0,0,0,0
+PinCnt=1
+Pin="PinA",0,0,-3,-7
+
+[compdef]
+Name=Zener
+Definition=Diode
+Shape=Zener
+Mask=4096
+Used=8
+memo=Zener diode
+Label Offset=16,11,16,11
+PinCnt=2
+Pin="Anode",6,0,-14,-2
+Pin="Cathode",0,0,-26,-2
+
+[Circuit]
+Window Placement=2,3, -1,-1, -8,-30, 0,0,1632,578
+Default Object=Color=#000080
+Default Object Font=Height=-15,FStyle=0,Color=#000080,Name=Arial
+Default Object Apply Border To Text=No
+Default Object Apply Fill To Text=No
+NodeVoltageFormat=3
+PathDelayFormat=3
+WarningFormat=3
+GridTextFormulaFormat=3
+SpiceType=AMBIGUOUS
+Title_Block_Border=None
+Title_Block=False
+Show Nodes=False
+Show Voltages=True
+Show Current=True
+Show Power=False
+Show Condition=False
+Show Pin Connections=False
+Show Connection Warnings=False
+Show Cross=False
+Show Attribute Text=True
+Show Grid Text=True
+
+[Comp]
+Name=Battery
+Px=432,472
+Rot=3
+
+[Attr]
+ON=-26,-27,PART
+V=V1
+Style=8192
+
+[Attr]
+ON=-26,-41,VALUE
+V=25
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=NPN
+Px=552,408
+Rot=3
+COff=8,552,408,-6,26
+COff=8,528,384,7,-31
+COff=8,576,384,65,-8
+
+[Attr]
+ON=37,-17,PART
+V=Q1
+Style=8192
+
+[Attr]
+ON=37,-3,MODEL
+V=KT882
+
+[Attr]
+ON=37,25,PACKAGE
+V=TO-218AC
+
+[Comp]
+Name=Resistor
+Px=480,400
+Rot=1
+COff=8,490,410,-25,-16
+
+[Attr]
+ON=10,10,PART
+V=R1
+Style=8192
+
+[Attr]
+ON=10,24,RESISTANCE
+V=2k
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Comp]
+Name=Ground
+Px=552,520
+Rot=1
+
+[Comp]
+Name=Resistor
+Px=624,424
+Rot=1
+
+[Attr]
+ON=10,10,PART
+V=R2
+Style=8192
+
+[Attr]
+ON=10,24,RESISTANCE
+V=100
+Style=8192
+
+[Attr]
+ON=0,0,PACKAGE
+V
+
+[Wire]
+Pxs=432,384,432,424
+
+[Wire]
+Pxs=432,384,480,384
+
+[Wire]
+Pxs=480,384,480,400
+
+[Wire]
+Pxs=480,384,528,384
+
+[Wire]
+Pxs=552,408,552,464
+
+[Wire]
+Pxs=432,472,432,520
+
+[Wire]
+Pxs=432,520,552,520
+
+[Wire]
+Pxs=480,448,480,464
+
+[Wire]
+Pxs=480,464,552,464
+
+[Wire]
+Pxs=552,464,552,472
+
+[Wire]
+Pxs=576,384,624,384
+
+[Wire]
+Pxs=624,384,624,424
+
+[Wire]
+Pxs=624,472,624,520
+
+[Wire]
+Pxs=552,520,624,520
+
+[Comp]
+Name=Zener
+Px=552,472
+Rot=1
+COff=8,568,483,-6,-8
+
+[Attr]
+ON=16,11,PART
+V=D1
+Style=8192
+
+[Attr]
+ON=16,25,MODEL
+V=BZX84C10
+Style=8192
+
+[Attr]
+ON=16,53,PACKAGE
+V=SOT-23
+
+[Grid Text]
+Text="Резистор R1 задает значение тока, который потечет через стабилитрон."
+Text="Тока должно хватать для того, чтобы вывести стабилитрон на обратную цепь ВАХ, чтобы"
+Text="стабилитрон держал значение номинального напряжения стабилизации."
+Text=""
+Text="Резистор R1 и стабилитрон D1 образуют делитель, на стабилитроне"
+Text=" выпадает напряжение стабилизации, на резисторе выпадает то, что осталось. "
+Text="Это остаточное напряжение задает ток через резистор."
+Text=""
+Text="На базу транзистора Q1 подается напряжение, равное напряжению стабилизации стабилитрона D1."
+Px=304,328
+Height=-10
+GridSnap=True
+JustifyH=Left
+JustifyV=Bottom
+CBorder=None
+
+[Grid Text]
+Text="Dynamic DC"
+Text="Temperature=27"
+Text="Displaying DC Voltages, Currents"
+BannerDC=True
+Px=16,100
+Height=-15
+Color=#800000
+Font=Arial
+GridSnap=False
+JustifyH=Left
+JustifyV=Bottom
+CFill=#C0C0C0
+CBorder=#000000
+
+[Schematic]
+CurrentSection 0=0
+CurrentSection 1=0
+CurrentSection 2=0
+CurrentSection 3=0
+Splitter.xs=0
+Splitter.ys=0
+TextQuad=4099
+Scale=0.66666666666666663
+GridType=GraphPaper
+GridUser=10
+ShapeGroups="Main","Euro","Polarity","Main1","Main2","Electrolytic","GroundArrow","DeMorgan"
+CalcRMS=False
+CalcAVG=False
+CalcPeak=False
+CalcVoltage=True
+DisplayMeasure=Last
+ShareScales=True
+
+[Tools]
+Pos=Top
+FILESAVEASOLD=No
+BOM=No
+FILEPCB=No
+PROBE=Yes
+SELECT=Yes
+COMP=Yes
+TEXT=Yes
+WIRE=Yes
+WIRED=Yes
+BUS=Yes
+GRAPHIC=Yes
+LINE=No
+ELLIPSE=No
+RECT=No
+DIAM=No
+ARC=No
+PIE=No
+LEFTBRK=No
+RIGHTBRK=No
+BOTHBRK=No
+META=No
+FLAG=Yes
+INFO=Yes
+HELP=Yes
+HELP_SPICE=No
+LINK=Yes
+REGION_ENABLE=Yes
+TITLE_BLOCK=Yes
+DIGTRC=No
+DIGTRC2=No
+BUILD_COMMAND=Yes
+DIGALL=No
+GRIDTEXT=Yes
+COMPTEXT=Yes
+NODE=Yes
+MEASURED=Yes
+NODEV=Yes
+CURRENT=Yes
+POWER=Yes
+CONDITIN=Yes
+PIN=Yes
+CONNWARN=Yes
+CROSS=No
+GRID=Yes
+BORDER=Yes
+BORDERONE=Yes
+TITLE=Yes
+RUBBER=Yes
+PROPERTY=Yes
+STEP=Yes
+MIRROR=Yes
+ROTATE=Yes
+FLIPY=Yes
+FLIPX=Yes
+CIR_MAKEMACRO=No
+CLEARCUTWIRE=No
+CLIPBOARDCIRPAGE2BMM=No
+FINDCOMP=Yes
+FIND=Yes
+REPEAT=No
+REPLACE=No
+MODEL=Yes
+CIR2CKT=No
+ATTDISP=No
+ENABLE=Yes
+DISABLE=Yes
+TOFRONT=Yes
+TOBACK=Yes
+SELNEXT=No
+PAGEADD=No
+PAGEADDTEXT=No
+ADDSECTION=No
+PAGEDEL=No
+ZOOMIN=Yes
+ZOOMOUT=Yes
+AUTOSCALECIR=Yes
+GOTOFLAG=No
+UPLEVEL=Yes
+COLOR=Yes
+FONT=Yes
+DM_LAST=No
+DM_RMS=No
+DM_AVG=No
+DM_PEAK=No
+GRID_NONE=No
+GRID_NORMAL=No
+GRID_BOLD_5=No
+GRID_BOLD_6=No
+GRID_BOLD_USER=No
+GRAPH_PAPER=No
+SPLITCIRTEXTH=No
+SPLITCIRTEXTV=No
+SPACE_SPLITTERS_EVENLY=No
+NORMALCIR=No
+RENAMEDEFINE=No
+RENAMECMP=No
+ATTALIGN=No
+RESETNODEPOS=No
+FIT2STANDARD=No
+NODESNAP=No
+MOVETEXT=No
+TEXTINC=No
+TOGGLETEXT=No
+TOGGLEMODE=No
+TOLERANCE=No
+ALIGNLEFT=No
+ALIGNRIGHT=No
+ALIGNTOP=No
+ALIGNBOTTOM=No
+
+[Section]
+Index=0
+Name="paramStabilized"
+Type=Main
+Enable=True
+CurrentPage 0=0
+CurrentPage 1=0
+CurrentPage 2=0
+CurrentPage 3=0
+TabSize 0=425
+TabSize 1=425
+TabSize 2=425
+TabSize 3=425
+
+[Page]
+Index=0
+Section=0
+Print=True
+Enable=True
+Name=Main
+PrinterScale=1
+Scale 0=1
+Scale 1=1
+Scale 2=1
+SB 3=0,151
+Scale 3=0.66666666666666663
+Px=657,472
+WinBackGround Color=#FFFFFF
+Select Color=#FF0000
+Anchor Color=#000000
+Select Box Color=#000080
+Grid Text Color=Height=-12,FStyle=0,Color=#0000FF,Name=Verdana
+Grid Text RTF=False
+Grid Text Angle=0
+Grid Text GridSnap=True
+Grid Text PinIt=False
+Grid Text JustifyH=Left
+Grid Text JustifyV=Bottom
+Component Color=#0000FF
+Attribute Text=Height=-12,FStyle=0,Color=#008000,Name=Verdana
+Wire Color=#008000
+Bus Color=#008000
+Pin Connection=Height=-10,FStyle=0,Color=#FF0000,Name=Arial
+Pin Marker Color=#008000
+Node Number=Height=-11,FStyle=0,Color=#FF00FF,Name=Arial
+Node Voltage Color=Height=-11,FStyle=0,Color=#000000,Name=Arial
+Dynamic AC Voltage Color=#E4E4E4
+Text Banner Text=Height=-15,FStyle=0,Color=#800000,Name=Arial
+Title Block Background=#C0C0C0
+Current=Height=-11,FStyle=0,Color=#0000FF,Name=Arial
+Power/Condition=Height=-11,FStyle=0,Color=#FF0000,Name=Arial
+Digital Path Color=#FF0000
+Title Block Border=#000000
+Disabled	Color=#C0C0C0
+Search Color=#FFFF00
+Grid Color=#000000
+Graph Paper=#E4E4E4
+Digital 0 Color=#000000
+Digital R Color=#FFFF00
+Digital F Color=#FFFF00
+Digital 1 Color=#FF0000
+Digital X Color=#C0C0C0
+Digital Z Color=#808080
+Block Select Color=#51F998
+
+[Page]
+Index=1
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Text
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Page]
+Index=2
+Section=0
+Type=Text
+Print=False
+Enable=True
+Name=Models
+SB 0=57,222
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Page]
+Index=3
+Section=0
+Type=Info
+Print=False
+Enable=True
+Name=Info
+Font=Height=-15,FStyle=0,Color=#000000,Name=Courier New
+Comment Color=#008000
+WinBackGround Color=#FFFFFF
+Disabled	Color=#C0C0C0
+KeyWord Color=#0000FF
+Error	Color=#FF0000
+Search Color=#FFFF00
+
+[Text Area]
+Section=0
+Page=1
+
+[Text Area]
+Section=0
+Page=2
+Text=*** From file D:\MICROCAP11\MC11\library\MPBJT.LIB
+Text=.MODEL MJH12004 NPN (BF=48.735444429621 BR=66.686054130804M
+Text=+ CJC=572.558134920198P CJE=2P FC=500.000000299313M IKF=599.266017597896M
+Text=+ IKR=999.988524369543 IS=9.842690977314F ISC=249.191884641192F
+Text=+ ISE=847.843767896752F ITF=10.045142038678M MJC=558.065987692382M MJE=500M
+Text=+ NC=2.000000022584 NE=1.207758528463 NF=910.458540411617M RC=945.597971071338M
+Text=+ RE=60.525279132238M TF=29.161510573188N TR=10N VAF=100 VJC=700.000003440558M
+Text=+ VTF=10.000000001427 XTF=500.000007090237M)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT642A-2 NPN (BF=12 CJC=2.76P CJE=1.7P FC=.5 IKF=60M IKR=60M IS=5.6F
+Text=+ ISC=150U ISE=150U ITF=60M MJC=.3333 MJE=.3333 RC=10M TF=14.51E-12 TR=10P
+Text=+ VAF=20 VJC=.75 VJE=.75 VTF=20 XTB=1.5 XTF=1.3)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT638A NPN (BF=156.7 BR=.58 CJC=12.1P CJE=32.14P FC=.5 IKF=.2839
+Text=+ IKR=.142 IS=49.43F ISC=5.44P ISE=321.8F ITF=24.56M MJC=.33 MJE=.33 NC=2.28
+Text=+ NE=1.45 NK=.5 RB=45.2 RC=4.75 TF=501.7P TR=1.725U VAF=120 VJC=.75 VJE=.75
+Text=+ VTF=40 XTB=1.5 XTF=95.24M)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT635B NPN (BF=105 BR=2 CJC=19.43P CJE=80P FC=.5 IKF=1.2 IKR=1.2
+Text=+ IS=487.2F ISC=1U ISE=1U ITF=1 MJC=.3333 MJE=.3333 RC=.8 TF=240P TR=1N VAF=65
+Text=+ VJC=.75 VJE=.75 VTF=65 XTB=1.5 XTF=1.3)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630V_ NPN (BF=120 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=160)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630V NPN (BF=80 CJC=25P CJE=65P FC=.5 IKF=.8 IKR=.7 IS=442.7E-18
+Text=+ ISC=1E-6 ISE=1E-7 ITF=.75 MJC=.333 MJE=.333 TF=3.129N TR=10N VAF=120 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.2)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630G_ NPN (BF=120 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=110)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630G NPN (BF=80 CJC=25P CJE=65P FC=.5 IKF=.8 IKR=.7 IS=442.7E-18
+Text=+ ISC=1E-6 ISE=1E-7 ITF=.75 MJC=.333 MJE=.333 TF=3.129N TR=10N VAF=120 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.2)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630E_ NPN (BF=480 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=70)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630E NPN (BF=480 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=70)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630D_ NPN (BF=240 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=70)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630D NPN (BF=300 CJC=25P CJE=65P FC=.5 IKF=.8 IKR=.7 IS=442.7E-18
+Text=+ ISC=1E-6 ISE=1E-7 ITF=.75 MJC=.333 MJE=.333 TF=3.129N TR=10N VAF=80 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.2)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630B_ NPN (BF=240 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=130)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630B NPN (BF=160 CJC=25P CJE=65P FC=.5 IKF=.8 IKR=.7 IS=442.7E-18
+Text=+ ISC=1E-6 ISE=1E-7 ITF=.75 MJC=.333 MJE=.333 TF=3.129N TR=10N VAF=120 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.2)
+Text=*** From file D:\MICROCAP11\MC11\library\SOVBIPOL.LIB
+Text=.MODEL KT630A_ NPN (BF=120 CJC=15PF CJE=65PF IKF=1A IS=1E-12 ISC=1NA ISE=1NA
+Text=+ KF=1E-15 NC=4 NE=4 RB=2.5 RE=0.5 TF=0.7NS TR=70NS VAF=130)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT630A NPN (BF=80 CJC=25P CJE=65P FC=.5 IKF=.8 IKR=.7 IS=442.7E-18
+Text=+ ISC=1E-6 ISE=1E-7 ITF=.75 MJC=.333 MJE=.333 TF=3.129N TR=10N VAF=120 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.2)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT608B NPN (BF=160 CJC=12PF CJE=30PF IKF=.4A IS=1E-12 ISC=10UA ISE=10UA
+Text=+ NC=4 NE=4 RB=3 RE=.5 TF=.6NS TR=50NS VAF=60 VAR=8V)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT608A NPN (BF=80 CJC=12PF CJE=30PF IKF=.4A IS=1E-12 ISC=10UA ISE=10UA
+Text=+ NC=4 NE=4 RB=3 RE=.5 TF=.6NS TR=50NS VAF=60 VAR=8V)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT605A NPN (BF=109.6 BR=.113 CJC=11.42P CJE=31.04P FC=.5 IKF=1.478
+Text=+ IKR=.34 IS=19.56F ISC=1.265P ISE=209F ITF=1.27 MJC=.3159 MJE=.2732 NE=1.427
+Text=+ RB=23 RC=6.14 TF=814.9P TR=1.238U VAF=110 VJC=.75 VJE=.75 VTF=80 XTB=1.5
+Text=+ XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT605 NPN (BF=1.99968K BR=2 CJC=53.3428P CJE=50P IKF=31.6809M
+Text=+ IKR=9.99968M IS=10F ISC=32.6841P ISE=49.7884F ITF=12.1412M MJC=499.847M
+Text=+ MJE=501.9M NE=1.27063 RC=395.428 RE=1 TF=2.78156N TR=10N VAF=59.7
+Text=+ VJC=700.001M VJE=700M VTF=10 XTF=500.152M)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT604A NPN (BF=109.6 BR=.113 CJC=11.42P CJE=31.04P FC=.5 IKF=1.478
+Text=+ IKR=.34 IS=19.56F ISC=1.265P ISE=209F ITF=1.27 MJC=.3159 MJE=.2732 NE=1.427
+Text=+ RB=18 RC=6.14 TF=814.9P TR=1.238U VAF=110 VJC=.75 VJE=.75 VTF=80 XTB=1.5
+Text=+ XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT603B NPN (BF=140.3 BR=1.113 CJC=5.646P CJE=28.89P FC=.5 IKF=1.033
+Text=+ IKR=.41 IS=91.85F ISC=1.265P ISE=410F ITF=2.04 MJC=.3443 MJE=.283 NE=1.299
+Text=+ RB=12 RC=1.17 TF=389.2P TR=255.1N VAF=80 VJC=.75 VJE=.75 VTF=60 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT603A NPN (BF=73.42 BR=.3123 CJC=5.646P CJE=28.89P FC=.5 IKF=1.033
+Text=+ IKR=.41 IS=91.85F ISC=1.265P ISE=410F ITF=2.04 MJC=.3443 MJE=.283 NE=1.299
+Text=+ RB=12 RC=1.17 TF=389.2P TR=255.1N VAF=90 VJC=.75 VJE=.75 VTF=60 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT602G NPN (BF=173.4 BR=6.458 CJC=9.393P CJE=22.01P FC=0.5 IKF=0.2689
+Text=+ IS=14.34F ISC=10N ISE=14.34F ITF=0.6 MJC=0.3416 MJE=0.377 NE=1.272 RB=10 RC=1
+Text=+ TF=409.7P TR=48.39N VAF=74.03 VJC=0.75 VJE=0.75 VTF=1.7 XTB=1.5 XTF=3)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT504A NPN (BF=209.7 BR=1.93 CJC=38.87P CJE=592.8P FC=.5 IKF=1.14
+Text=+ IKR=81.42M IS=26.98F ISC=275.6F ISE=498.3F ITF=10.8 MJC=.35 MJE=.33 NC=1.445
+Text=+ NE=1.412 NK=.5971 RB=6.7 RC=.5483 TF=1.867N TR=810.9N VAF=138 VJC=.75 VJE=.65
+Text=+ VTF=40 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT503V NPN (BF=130.7 BR=1.2 CJC=23.66P CJE=30.84P FC=.5 IKF=.2659
+Text=+ IKR=1.637 IS=6.843F ISC=26.4P ISE=56.77F ITF=1 MJC=.33 MJE=.33 NC=2.088
+Text=+ NE=1.358 NK=.4211 RB=6 RC=1.538 TF=15.39N TR=648.9N VAF=114 VJC=.75 VJE=.75
+Text=+ VTF=30 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT646A NPN (BF=200 BR=4.6 CJC=21.24P CJE=34.4P FC=0.5 IKF=0.4095
+Text=+ IKR=0.21 IS=17.03F ISC=1.35P ISE=153.3F ITF=0.65 MJC=0.33 MJE=0.33 NE=1.368
+Text=+ RB=15 RC=0.35 TF=1.8N TR=50N VAF=123 VAR=75 VJC=0.69 VJE=0.69 VTF=60 XTB=1.5
+Text=+ XTF=1)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT653A NPN (BF=130.5 BR=1.93 CJC=17P CJE=41.5P FC=.5 IKF=1.511
+Text=+ IKR=81.42M IS=44.97F ISC=640.4F ISE=466.8F ITF=1 MJC=.33 MJE=.33 NC=1.441
+Text=+ NE=1.384 NK=.8169 RB=12 RC=.6239 TF=805.3P TR=393.8N VAF=113.3 VJC=.75
+Text=+ VJE=.75 VTF=60 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT653B NPN (BF=50 BR=4 CJC=24.29P CJE=47.43P FC=.5 IKF=2 IKR=2 IS=48.25P
+Text=+ ISC=1U ISE=1U ITF=1.5 MJC=.33 MJE=.33 RC=2 TF=799.5P TR=20N VAF=120 VJC=.75
+Text=+ VJE=.75 VTF=120 XTB=1.5 XTF=1.3)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT665A9 NPN (BF=196.64 BR=4.5875 CJC=5E-11 CJE=2.3944E-10 FC=0.5
+Text=+ IKF=4.0903 IKR=0.38749 IRB=1E+30 IS=7.0489E-14 ISC=1.3037E-09 ISE=7.134E-14
+Text=+ ITF=1 MJC=0.41826 MJE=0.34922 NC=2.4443 NE=1.2257 RC=0.15103 TF=9.9605E-10
+Text=+ TR=1E-08 VAF=100 VAR=100 VJC=0.65363 VJE=0.35035 VJS=0.75 VTF=10 XTF=10)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT666A9 NPN (BF=122 BR=6.235 CJC=5.045P CJE=1.742E-11 FC=0.8555
+Text=+ IKF=0.01029 IKR=0.02746 IRB=1E-06 IS=7.974F ISC=4.33P ISE=2.266E-16
+Text=+ ITF=0.1495 MJC=0.1947 MJE=0.3092 NC=1.397 NE=1.18 NF=0.993 NR=0.999 RB=1
+Text=+ RBM=0.5 RC=0.439 RE=0.3814 TF=7.073E-10 TR=1E-08 VAF=25.51 VAR=19.43
+Text=+ VJC=0.197 VJE=0.4581 VTF=6.144 XCJC=0.1041 XTF=289.5)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT801B NPN (BF=60.6285 BR=2 CJC=105P CJE=430P IKF=970.016M IKR=9.90801
+Text=+ IS=190.858F ISC=0.000104233F ISE=36.238N MJC=0.4 MJE=0.5 NE=2.76223
+Text=+ RC=26.9255M RE=201.343M TF=5N TR=500N VAF=112.9)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT803 NPN (BF=188.54 BR=94.1769M CJC=1.5185N CJE=2P IKF=999.777M
+Text=+ IKR=999.307M IS=10.0013F ISC=77.4497P ISE=939.177F ITF=10.0488N MJC=501.024M
+Text=+ MJE=500M NE=1.40628 NF=959.516M RC=324.659M TF=3.59562N TR=10N VAF=100
+Text=+ VJC=750.012M VTF=9.99912 XTF=508.073M)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT808 NPN (BF=200.033 BR=87.768M CJC=1.89734N CJE=2P IKF=1000M
+Text=+ IKR=1.74259 IS=10.0013F ISC=134.067F ISE=1.04781P ITF=15.4469M MJC=500.866M
+Text=+ MJE=500M NE=1.32819 NF=959.516M RC=304.835M TF=11.3898N TR=454.404U VAF=100
+Text=+ VJC=750.004M VTF=9.99941 XTF=500.953M)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT809A NPN (BF=82.09 BR=2.813 CJC=394.4P CJE=1.737N FC=.5 IKF=5.346
+Text=+ IKR=1.238 IS=130.1F ISC=2.51P ISE=217.3P ITF=23.15 MJC=.3333 MJE=.33 NC=1.493
+Text=+ NE=1.719 NK=.4488 RB=1.5 RC=.1166 TF=24.96N TR=847.7N VAF=100 VJC=.75 VJE=.75
+Text=+ VTF=60 XTB=1.5 XTF=5)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT812A NPN (BF=123.5 BR=136.9M CJC=352.7P CJE=800P FC=.5 IKF=19.27
+Text=+ IKR=8.53 IS=74.22F ISC=1.142P ISE=172P ITF=.45 MJC=.33 MJE=.3395 NE=1.754
+Text=+ RB=.5 RC=.21 TF=11.34N TR=647.1N VAF=153 VJC=.75 VJE=.75 VTF=80 XCJC=0.5
+Text=+ XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT812B NPN (BF=154.7 CJC=352.7P CJE=800P FC=.5 IKF=26.48 IKR=.32
+Text=+ IS=43.44F ISC=1.18P ISE=10.38P ITF=1.5 MJC=.33 MJE=.33 NC=1.576 NE=1.51
+Text=+ NK=.8517 RB=.2 RC=.2787 TF=11.34N TR=647.1N VAF=153 VJC=.75 VJE=.75 VTF=80
+Text=+ XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT815 NPN (BF=195.13 BR=1.85631 CJC=171.078P CJE=98.1997P IKF=284.434M
+Text=+ IKR=9.98978M IS=14.1225F ISC=99.9616P ISE=78.7609F ITF=10.0285M MJC=499.621M
+Text=+ MJE=500.032M NE=1.29368 RC=940.851M RE=785.659M TF=55.9031N TR=10N VAF=23.7
+Text=+ VJC=700.004M VJE=700M VTF=10 XTF=499.998M)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT815A NPN (BF=191.7 BR=1.683 CJC=88.73P CJE=71.14P FC=.5 IKF=.4139
+Text=+ IKR=.5592 IS=10.2F ISC=706.1F ISE=349.5F ITF=1 MJC=.3333 MJE=.3333 NC=1.473
+Text=+ NE=1.422 NK=.624 RB=5 RC=.203 TF=24.32N TR=2.046U VAF=70 VJC=.75 VJE=.75
+Text=+ VTF=10 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT815B NPN (BF=159.4 BR=1.576 CJC=88.73P CJE=71.14P FC=.5 IKF=.3983
+Text=+ IKR=.3633 IS=10.2F ISC=231.6F ISE=573.7F ITF=1 MJC=.3333 MJE=.3333 NC=1.44
+Text=+ NE=1.453 NK=.5 RB=5 RC=.2936 TF=24.32N TR=2.046U VAF=87 VJC=.75 VJE=.75
+Text=+ VTF=10 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\R-NPN.LIB
+Text=.MODEL KT815G NPN (BF=53.9 BR=2.39 CJC=61.7P CJE=51.3P FC=.5 IKF=.153 IS=3.37P
+Text=+ ISE=63.7P MJC=.33 MJE=.33 NE=1.576 TF=52.92N TR=3.63U VAF=100 VJC=.75 VJE=.75
+Text=+ XTB=1.5)
+Text=*** From file D:\MICROCAP11\MC11\library\BJT_SPICE_M.LIB
+Text=.MODEL KT815V NPN (BF=115.3 BR=1.576 CJC=88.73P CJE=71.14P FC=.5 IKF=.3983
+Text=+ IKR=.3633 IS=10.2F ISC=231.6F ISE=573.7F ITF=1 MJC=.3333 MJE=.3333 NC=1.44
+Text=+ NE=1.453 NK=.5 RB=5 RC=.2936 TF=24.32N TR=2.046U VAF=87 VJC=.75 VJE=.75
+Text=+ VTF=10 XTB=1.5 XTF=2)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT817 NPN (BF=966.269 BR=2 CJC=234.816P CJE=150.522P IKF=90.6035M
+Text=+ IKR=27.4368M IS=764.248F ISC=4.837983E-016 ISE=21.3173P ITF=1.36895N
+Text=+ MJC=500.365M MJE=499.401M NE=1.49763 RC=345.896M RE=120.363M TF=81.433N
+Text=+ TR=10N VAF=23.7 VJC=699.995M VJE=699.997M VTF=9.99999 XTF=500.771M)
+Text=*** From file D:\MICROCAP11\MC11\library\RU_ACTIVE.LIB
+Text=.MODEL KT903 NPN (BF=200.011 BR=4.99999 CJC=1.15697N CJE=2P IKF=1000M
+Text=+ IKR=994.189 IS=9.99927F ISC=2.46003F ISE=1.035P ITF=10.182M MJC=501.035M
+Text=+ MJE=500M NE=1.45108 NF=998.719M RE=1.0747 TF=1.24961N TR=1.218484E-018
+Text=+ VAF=100 VJC=750.038M VTF=10 XTF=500M)
+Text=*** From file D:\MICROCAP11\MC11\library\OSRAM.LIB
+Text=.MODEL LB_543C-TYP D (IS=391.23E-18 N=3.7776 RS=28.602)
+Text=*** From file D:\MICROCAP11\MC11\library\R-DIOD.LIB
+Text=.MODEL KD202D D (BV=200 FC=0.5 IBV=1E-10 IS=4.012E-9 M=0.38 N=1.56 TT=3.19E-7
+Text=+ VJ=0.75)
+Text=*** From file D:\MICROCAP11\MC11\library\ON_DIODE.LIB
+Text=.MODEL SS22 D (BV=20 CJO=3.56675E-10 EG=0.650254 FC=0.5 IBV=0.0004
+Text=+ IS=2.67298E-05 M=0.460736 N=1.3565 RS=0.0313606 VJ=0.4 XTI=0.5)
+Text=*** From file D:\MICROCAP11\MC11\library\GENSEMI.LIB
+Text=.MODEL SS16 D (BV=60 CJO=0.0000000002959 IBV=2U IS=0.000005978 ISR=0.0000000001
+Text=+ M=.3333 N=1.408 RS=0.06809 TT=0.000001271 VJ=.75 XTI=-11.80)
+Text=*** From file D:\MICROCAP11\MC11\library\GENSEMI.LIB
+Text=.MODEL SS14 D (BV=40 CJO=0.0000000003007 IBV=40U IS=0.000000861
+Text=+ ISR=0.0000000001 M=.4259 N=1.034 RS=0.04527 TT=0.00000001053 VJ=.4316
+Text=+ XTI=-15.67)
+Text=*** From file D:\MICROCAP11\MC11\library\SKYWORKS.LIB
+Text=.MODEL SMS7621 D (BV=3 CJO=.1P EG=.69 FC=.5 IBV=1E-5 IS=4E-8 M=.35 N=1.05 RS=12
+Text=+ TT=1E-11 VJ=.51 XTI=2)
+Text=*** From file D:\MICROCAP11\MC11\library\ZETEX.LIB
+Text=.MODEL BZX84C15 D (BV=15.1 CJO=56.98E-12 FC=.5 IBV=.2165 IKF=1 IS=1.116E-15
+Text=+ M=.3326 N=1.027 RS=.11 TBV1=.76E-3 TT=209.2E-9 VJ=.803)
+Text=*** From file D:\MICROCAP11\MC11\library\ZETEX.LIB
+Text=.MODEL BZX84C13 D (BV=13.1 CJO=62.95E-12 FC=.5 IBV=.2164 IKF=1 IS=513.2E-18
+Text=+ M=.3341 N=1.001 RS=.1 TBV1=.71E-3 TT=173.1E-9 VJ=.8633)
+Text=*** From file D:\MICROCAP11\MC11\library\ZETEX.LIB
+Text=.MODEL BZX84C12 D (BV=12.1 CJO=73.83E-12 FC=.5 IBV=.2602 IKF=1 IS=869.1E-18
+Text=+ M=.3306 N=1.02 RS=.12 TBV1=.69E-3 TT=144.3E-9 VJ=.7651)
+Text=*** From file D:\MICROCAP11\MC11\library\ZETEX.LIB
+Text=.MODEL BZX84C11 D (BV=11.11 CJO=80.82E-12 FC=.5 IBV=.3262 IKF=1 IS=544.3E-18
+Text=+ M=.327 N=1.011 RS=.14 TBV1=.68E-3 TT=122.6E-9 VJ=.7056)
+
+[InfoPage]
+InfoPage=True
+Warnings=True
+System=True
+Defines=True
+Array=True
+Model=True
+Measure=True
+MacroSubckt=True
+NotUsed=True
+ComponentCounts=True
+
+[Limits]
+Analysis=DynamicAC
+FirstValueDisplay=Mag
+SecondValueDisplay=PhaseDeg
+PlaceText=True
+
+[Limits]
+Analysis=DynamicDC
+Temp=27
+SliderPer=10
+PlaceText=True
+
+[Pane]
+Analysis=Transient
+
+[Pane]
+Analysis=AC
+
+[Pane]
+Analysis=DC
+
+[Pane]
+Analysis=HmDistortion
+
+[Pane]
+Analysis=ImDistortion
+
+[Pane]
+Analysis=Stability
+
+[WCTolerance]
+Var Width=100
+Nominal Width=72
+Tol Width=152
+
+[OPMethods]
+Analysis=Transient
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=AC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=HmDistortion
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=ImDistortion
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=Stability
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DynamicAC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
+
+[OPMethods]
+Analysis=DynamicDC
+Standard Newton-Raphson=0,0
+Source Stepping=0,0
+Diagonal Gmin Stepping=0,0
+Junction Gmin Stepping=0,0
+Pseudo Transient=0,0
